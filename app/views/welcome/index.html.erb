@@ -1,1 +1,98 @@
 <% title 'welcome to molockup, gringo'%>
+
+<div id="navigation">
+
+				
+           <h1><%= link_to @project.title, @project %></h1>
+           
+           <h3><%= link_to current_user.email %> (<%= @project.user_id %>) <%= link_to '(edit)', edit_project_path(@project) %></h3>
+           
+           <p id="notice"><%= notice %></p>
+           
+           <div style="display:none">
+           	<%= @project.description %>
+           </div>
+           
+           <div id="elements_info">
+           </div>
+           <ul id="qwe">
+               <li>
+                   Theme: <input type="text" name="theme" id="theme"/>
+               </li>
+               <li>
+                   <a href="#" id="create_new_block_trigger">Create new block</a>
+                   <select name="block_type" id="block_type">
+                   		<option value="type_simple">Простой</option>
+                   		<option value="type_text">Текст</option>
+                   		<option value="type_image">Картинка</option>
+                   		<option value="type_map">Карта</option>
+                   </select>
+               </li>
+               <li>
+                   <a href="#" id="get_images_trigger">Get images</a>
+               </li>
+               <li>
+                   <a href="#" id="add_layer">+ new layer</a>
+               </li>
+               <li>
+               		<a href="#" id="save_layout">save layout</a>
+               </li>
+				<li>
+               		<a href="#" id="load_layout">load layout</a>
+               </li>
+               <li>
+               		<a href="#" id="debug_trigger">debug</a>
+               </li>
+           </ul>
+           
+           <ul>
+           	<% @mockups.each do |mockup| 
+					mockup_id = "mockup_link_" + mockup.id.to_s
+				%>
+					
+					<li>
+						<% if (@mockup.id == mockup.id)%>
+						>>
+						<% end %>
+						<%= link_to mockup.title, {:controller => 'projects', :action => 'show', :mockup_id => mockup.id}, :id => mockup_id, :class => 'show_mockup'%>
+					</li>
+				<% end %>
+			</ul>
+						
+           <ul id="layers">
+           </ul>
+           
+       </div>
+	    <div id='debug' class='modal_window'>
+
+	    </div>
+		<div id="wrapper">
+			<div id="work_space">
+				
+			</div>
+		</div>
+        <div id='save_process' style="display:none;">Saving layout.</div>
+       <script type="text/javascript">
+           $(document).ready(function(){
+               $('#create_new_block_trigger').wireframe({
+									'project_id': '<%= @project.id %>',
+									'mockup_id': '<%= @mockup.id %>'
+					
+								});
+				
+               $("#layers").sortable({
+                   placeholder: "layer_highlight"
+               });
+
+               $("#layers").disableSelection();
+
+               $('#debug').draggable().css({
+                   'display': 'none'
+               });
+               $('#debug_trigger').click(function(){
+                   $('#debug').toggle('show');
+               })
+           });
+           
+       </script>
+
