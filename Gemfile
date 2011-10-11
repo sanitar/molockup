@@ -1,7 +1,11 @@
 source 'http://rubygems.org'
 
+gem 'rack', '1.3.3'
+gem 'rake', '0.9.2'
 gem 'rails', '3.1.0'
-
+gem 'devise'
+gem 'cancan'
+gem 'json'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
