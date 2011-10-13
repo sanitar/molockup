@@ -12,7 +12,7 @@ class MockupsController < ApplicationController
   end
 
   def new
-    @mockup = Mockup.new
+    @mockup = Mockup.new({:project_id => @project.id})
   end
 
   def create

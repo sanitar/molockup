@@ -6,7 +6,8 @@ class Ability
     user ||= User.new
     
     can :manage, Project, :owner_id => user.id
-    can :manage, Mockup do |mockup|
+    can :create, Mockup
+    can :update, Mockup do |mockup|
       mockup.project.owner_id == user.id
     end  
     can :read, :all
