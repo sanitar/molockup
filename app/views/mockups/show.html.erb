@@ -1,0 +1,20 @@
+<% title "Mockup" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @mockup.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @mockup.description %>
+</p>
+<p>
+  <strong>Project:</strong>
+  <%= @mockup.project_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_mockup_path(@mockup) %> |
+  <%= link_to "Destroy", @mockup, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", mockups_path %>
+</p>
