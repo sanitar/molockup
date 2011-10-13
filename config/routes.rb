@@ -1,8 +1,6 @@
 Molockup::Application.routes.draw do
 
 
-  resources :mockups
-
   resources :projects
 
   devise_for :users

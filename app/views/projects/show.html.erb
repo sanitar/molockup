@@ -1,25 +1,24 @@
-<p id="notice"><%= notice %></p>
+<% title "Project" %>
 
 <p>
-  <b>Name:</b>
+  <strong>Name:</strong>
   <%= @project.name %>
 </p>
-
 <p>
-  <b>Description:</b>
+  <strong>Description:</strong>
   <%= @project.description %>
 </p>
-
 <p>
-  <b>Owner:</b>
+  <strong>Owner:</strong>
   <%= @project.owner_id %>
 </p>
-
 <p>
-  <b>Owner type:</b>
+  <strong>Owner Type:</strong>
   <%= @project.owner_type %>
 </p>
 
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<p>
+  <%= link_to "Edit", edit_project_path(@project) %> |
+  <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", projects_path %>
+</p>

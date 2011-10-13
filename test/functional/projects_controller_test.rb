@@ -1,49 +1,54 @@
 require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
-  setup do
-    @project = projects(:one)
-  end
-
-  test "should get index" do
+  def test_index
     get :index
-    assert_response :success
-    assert_not_nil assigns(:projects)
+    assert_template 'index'
   end
 
-  test "should get new" do
+  def test_show
+    get :show, :id => Project.first
+    assert_template 'show'
+  end
+
+  def test_new
     get :new
-    assert_response :success
+    assert_template 'new'
   end
 
-  test "should create project" do
-    assert_difference('Project.count') do
-      post :create, project: @project.attributes
-    end
-
-    assert_redirected_to project_path(assigns(:project))
+  def test_create_invalid
+    Project.any_instance.stubs(:valid?).returns(false)
+    post :create
+    assert_template 'new'
   end
 
-  test "should show project" do
-    get :show, id: @project.to_param
-    assert_response :success
+  def test_create_valid
+    Project.any_instance.stubs(:valid?).returns(true)
+    post :create
+    assert_redirected_to project_url(assigns(:project))
   end
 
-  test "should get edit" do
-    get :edit, id: @project.to_param
-    assert_response :success
+  def test_edit
+    get :edit, :id => Project.first
+    assert_template 'edit'
   end
 
-  test "should update project" do
-    put :update, id: @project.to_param, project: @project.attributes
-    assert_redirected_to project_path(assigns(:project))
+  def test_update_invalid
+    Project.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => Project.first
+    assert_template 'edit'
   end
 
-  test "should destroy project" do
-    assert_difference('Project.count', -1) do
-      delete :destroy, id: @project.to_param
-    end
+  def test_update_valid
+    Project.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => Project.first
+    assert_redirected_to project_url(assigns(:project))
+  end
 
-    assert_redirected_to projects_path
+  def test_destroy
+    project = Project.first
+    delete :destroy, :id => project
+    assert_redirected_to projects_url
+    assert !Project.exists?(project.id)
   end
 end
