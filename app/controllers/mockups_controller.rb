@@ -1,6 +1,10 @@
 class MockupsController < ApplicationController
+  
+  load_and_authorize_resource
+  before_filter :load_project
+  
   def index
-    @mockups = Mockup.all
+    @mockups = @project.mockups
   end
 
   def show
@@ -13,8 +17,10 @@ class MockupsController < ApplicationController
 
   def create
     @mockup = Mockup.new(params[:mockup])
+    @mockup.project = @project
+    
     if @mockup.save
-      redirect_to @mockup, :notice => "Successfully created mockup."
+      redirect_to [@project, @mockup], :notice => "Successfully created mockup."
     else
       render :action => 'new'
     end
@@ -27,7 +33,7 @@ class MockupsController < ApplicationController
   def update
     @mockup = Mockup.find(params[:id])
     if @mockup.update_attributes(params[:mockup])
-      redirect_to @mockup, :notice  => "Successfully updated mockup."
+      redirect_to [@project, @mockup], :notice  => "Successfully updated mockup."
     else
       render :action => 'edit'
     end
@@ -36,6 +42,12 @@ class MockupsController < ApplicationController
   def destroy
     @mockup = Mockup.find(params[:id])
     @mockup.destroy
-    redirect_to mockups_url, :notice => "Successfully destroyed mockup."
+    redirect_to project_mockups_url(@project), :notice => "Successfully destroyed mockup."
+  end
+  
+  private
+  
+  def load_project
+    @project = Project.find(params[:project_id])
   end
 end

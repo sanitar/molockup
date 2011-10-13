@@ -16,7 +16,12 @@
   <strong>Owner Type:</strong>
   <%= @project.owner_type %>
 </p>
-
+Макеты:
+<ul>
+	<% @project.mockups.each do |mockup| %>
+		<li><%= link_to mockup.name, project_mockup_path(@project, mockup) %></li>
+	<% end %>
+</ul>
 <p>
   <%= link_to "Edit", edit_project_path(@project) %> |
   <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |

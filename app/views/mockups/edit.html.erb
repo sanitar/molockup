@@ -3,6 +3,6 @@
 <%= render 'form' %>
 
 <p>
-  <%= link_to "Show", @mockup %> |
-  <%= link_to "View All", mockups_path %>
+  <%= link_to "Show", project_mockup_path(@project, @mockup) %> |
+  <%= link_to "View All", project_mockups_path(@project) %>
 </p>

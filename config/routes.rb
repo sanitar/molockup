@@ -1,10 +1,9 @@
 Molockup::Application.routes.draw do
 
-
-  resources :mockups
-
-  resources :projects
-
+  resources :projects do
+    resources :mockups
+  end
+  
   devise_for :users
 
   root :to => 'welcome#index'

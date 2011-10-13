@@ -5,7 +5,11 @@ class Ability
     
     user ||= User.new
     
-    can :manage, :all
+    can :manage, Project, :owner_id => user.id
+    can :manage, Mockup do |mockup|
+      mockup.project.owner_id == user.id
+    end  
+    can :read, :all
     
     # Define abilities for the passed in user here. For example:
     #

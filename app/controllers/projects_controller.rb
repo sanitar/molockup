@@ -1,10 +1,13 @@
 class ProjectsController < ApplicationController
+  
+  load_and_authorize_resource
+  
   def index
     @projects = Project.all
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project.includes(:mockups).find(params[:id])
   end
 
   def new

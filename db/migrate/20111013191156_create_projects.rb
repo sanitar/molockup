@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :owner_id
-      t.string :owner_type
+      t.string :owner_type, :default => 'user'
       t.timestamps
     end
   end

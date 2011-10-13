@@ -11,11 +11,11 @@
       <td><%= mockup.name %></td>
       <td><%= mockup.description %></td>
       <td><%= mockup.project_id %></td>
-      <td><%= link_to "Show", mockup %></td>
-      <td><%= link_to "Edit", edit_mockup_path(mockup) %></td>
-      <td><%= link_to "Destroy", mockup, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Show", project_mockup_path(@project, mockup) %></td>
+      <td><%= link_to "Edit", edit_project_mockup_path(@project, mockup) %></td>
+      <td><%= link_to "Destroy", project_mockup_path(@project, mockup), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Mockup", new_mockup_path %></p>
+<p><%= link_to "New Mockup", new_project_mockup_path(@project) %></p>

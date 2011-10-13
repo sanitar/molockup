@@ -1,6 +1,8 @@
 <% if current_user %>
 	Hey, <%= current_user.email %>! 
 	<%= link_to 'logout', destroy_user_session_path, :method => :delete %>
+	<br/>
+	<%= link_to 'my projects', projects_path %>
 <% else %>
 	<%= link_to 'Register', new_user_registration_path %> or 
 	<%= link_to 'sign in.', new_user_session_path %>
