@@ -1,7 +1,11 @@
 Molockup::Application.routes.draw do
 
   resources :projects do
-    resources :mockups
+    resources :mockups do
+      member do
+        post 'save'
+      end
+    end
   end
   
   devise_for :users

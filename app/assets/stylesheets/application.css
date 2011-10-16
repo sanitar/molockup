@@ -3,5 +3,323 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require_tree . 
+ *= require_tree .
 */
+
+ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, blockquote, fieldset, dl, dt, dd, caption {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ temp css
+ */
+body {
+    color: #69c;
+    font: 10px / 18px Verdana, sans-serif;
+}
+
+h1 {
+    color: #69c;
+    font: 18px Verdana, sans-serif;
+}
+h1 a{
+    color: #69c;
+    font: 18px Verdana, sans-serif;
+}
+h3 {
+    color: #69c;
+    font: 10px Verdana, sans-serif;
+    line-height: 12px;
+}
+h3 a{
+    color: #69c;
+    font: 12px Verdana, sans-serif;
+    line-height: 12px;
+}
+
+li {
+	list-style:none;
+}
+
+a {
+    color: #69c;
+    font: 10px / 18px Verdana, sans-serif;
+    text-decoration: none;
+    outline: none;
+}
+
+h1 {
+    color: #ccc;
+}
+
+input {
+    color: #69c;
+    font: 10px / 18px Verdana, sans-serif;
+    border: 1px solid #69c;
+}
+#navigation{
+	position: fixed;
+	width: 220px;
+	height:100%;
+	z-index:9998;
+	padding:10px;
+	left: 20px;
+	background: url(/assets/block_bg.png);
+	overflow:hidden;
+}
+#wrapper{
+	width:100%;
+	height:100%;
+	overflow-y:scroll;
+}
+#work_space {
+    width: 100%;
+    height: 1800px;
+    position: absolute;
+    background: url(/assets/grid.png);
+	overflow:auto;
+}
+
+.element {
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background: url(/assets/block_bg.png);
+}
+
+.content {
+    width: auto;
+    height: 100%;
+}
+
+.element.active {
+    -webkit-box-shadow: #ffba00 0 0 10px 2px;
+    -moz-box-shadow: #ffba00 0 0 10px 2px;
+    box-shadow: #ffba00 0 0 10px 2px;
+}
+
+.ui-selected {
+    -webkit-box-shadow: #229922 0 0 10px 2px;
+    -moz-box-shadow: #229922 0 0 10px 2px;
+    box-shadow: #229922 0 0 10px 2px;
+}
+
+.ui-selectable-helper {
+    position: absolute;
+    border: 1px solid #999;
+}
+
+.close_trigger {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background: url(/assets/trigger_close.png);
+    cursor: pointer;
+    display: none;
+}
+
+.insert_trigger {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background: url(/assets/trigger_insert.png);
+    cursor: pointer;
+    display: none;
+}
+
+.options_trigger {
+    position: absolute;
+    right: 35px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background: url(/assets/trigger_options.png);
+    cursor: pointer;
+    display: none;
+}
+
+.select_trigger {
+    position: absolute;
+    right: 50px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background: url(/assets/trigger_select.png);
+    cursor: pointer;
+    display: none;
+}
+
+.lock_trigger {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    width: 10px;
+    height: 10px;
+    background: url(/assets/trigger_lock.png) no-repeat 100% 0;
+    cursor: pointer;
+    display: none;
+}
+.lock_trigger.locked{
+    background-position: 0 0;
+}
+
+.hovered.element{
+	cursor: pointer;
+}
+.hovered .close_trigger {
+    display: block;
+}
+
+.hovered .insert_trigger {
+    display: block;
+}
+
+.hovered .options_trigger {
+    display: block;
+}
+
+.hovered .select_trigger {
+    display: block;
+}
+
+.hovered .lock_trigger {
+    display: block;
+}
+
+.hovered .ui-resizable-handle {
+    position: absolute;
+}
+
+.hovered .ui-resizable-n {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: url(/assets/trigger_resize_hor.png) no-repeat 50% 0;
+	cursor:n-resize;
+}
+
+.hovered .ui-resizable-s {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: url(/assets/trigger_resize_hor.png) no-repeat 50% 0;
+	cursor:s-resize;
+}
+
+.hovered .ui-resizable-w {
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: url(/assets/trigger_resize_vert.png) no-repeat 0 50%;
+	cursor:w-resize;
+}
+
+.hovered .ui-resizable-e {
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: url(/assets/trigger_resize_vert.png) no-repeat 0 50%;
+	cursor:e-resize;
+}
+
+.hovered .ui-resizable-se {
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: url(/assets/trigger_resize_se.png);
+	cursor:se-resize;
+}
+
+.modal_window {
+    position: absolute;
+    width: 550px;
+    height: 350px;
+	padding-top:25px;
+    border: 10px solid #333;
+    background: url(/assets/block_bg.png);
+    z-index: 9999;
+}
+.modal_window_content {
+    position: absolute;
+    width: 550px;
+    height: 300px;;
+    overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.modal_window .close_trigger {
+    display: block;
+	right: 15px;
+}
+
+.modal_window .image_wrapper {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    overflow: hidden;
+    float: left;
+    border: 4px solid #555;
+}
+#modal_window_handler{
+	height:25px;
+	width:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	background:#333;
+}
+
+.content_menu {
+    position: absolute;
+    left: 50px;
+    width: 120px;
+    height: 100px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background: url(/assets/block_bg.png);
+    color: #999;
+    z-index: 9999;
+}
+
+/*
+ Layers
+ */
+
+#layers {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 5px;
+    width: 210px;
+	position:absolute;
+	bottom:40px;
+}
+
+#layers li {
+    margin: 2px 0 ;
+    padding: 5px;
+    height: 15px;
+	border: 1px solid #ccc;
+}
+
+html > body #layers li {
+    height: 15px;
+}
+
+.layer_highlight {
+	height:15px;
+}
+#layers .active {
+	background: #CAF9DC;
+}

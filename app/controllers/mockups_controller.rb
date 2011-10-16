@@ -6,6 +6,12 @@ class MockupsController < ApplicationController
   def index
     @mockups = @project.mockups
   end
+  
+  def save
+    @mockup = Mockup.find(params[:id])
+    @mockup.update_attribute('content', params[:mockup][:content])
+    
+  end
 
   def show
     @mockup = Mockup.find(params[:id])

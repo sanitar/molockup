@@ -6,4 +6,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery-ui
+//= require blockpool
+//= require json2
+//= require jquery.ui.mblock
+//= require jquery.ui.wireframe
