@@ -238,8 +238,6 @@
                 molockup.blocks[el].element.mblock("update_element_info");
             }
             
-			console.log(molockup.blocks)
-			console.log(JSON.stringify(molockup.blocks))	
             $.ajax({
                 type: 'POST',
                 url: '/projects/'+this.options.project_id+'/mockups/'+this.options.mockup_id+'/save',

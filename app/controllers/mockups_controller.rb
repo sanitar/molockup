@@ -15,6 +15,11 @@ class MockupsController < ApplicationController
 
   def show
     @mockup = Mockup.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @mockup }
+      format.json { render :json => @mockup.content }
+    end
   end
 
   def new
