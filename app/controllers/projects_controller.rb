@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  
+  layout 'workspace'
   load_and_authorize_resource
   
   def index
