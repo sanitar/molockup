@@ -25,7 +25,6 @@
 
             this.options.block_type = $('#block_type').val();
             this.init_block();
-            //console.log($('#block_type').val());
             /*
             * Making action from molockup.blockpool actions
             * this.options.blockpool - name of blockpool
@@ -44,16 +43,15 @@
             this.block_type = this.options.block_type;
             this.navigation = $('#navigation'); // @todo Ченить придумать по поводу появления блока, эта херня только для расчета позиции навигационного блока нужна ща
             this.workspace = $('#work_space'); // @todo Temp for draggable options
-            //this.content_menu = $('<div/>', {'class':'content_menu'}).appendTo('body');
-
+           
             this.ctrl = {}; // Block controllers
 
             this.debug = $('#debug'); // temp debug div
-            //$.blocks.id++;
-
+            
+			// Block creation
             this._create_block();
             
-            molockup.blocks['element_'+this.block_id]= this;
+            molockup.blocks['element_'+this.block_id] = this;
         },
 
         _create_block: function(){
@@ -248,16 +246,17 @@
             return options
         },
 
+        /*
+        *  Creating default triggers
+        *  triggers are methods in this.ctrl.triggers objects with two methods: handler and action
+        *  handler - jQuery object
+        *  action - function on handler click, return false
+        *  @todo API for custom triggers
+        * */
+
         _init_default_triggers: function(){
 			var self = this;
 
-            /*
-            *  Creating default triggers
-            *  triggers are methods in this.ctrl.triggers objects with two methods: handler and action
-            *  handler - jQuery object
-            *  action - function on handler click, return false
-            *  @todo API for custom triggers
-            * */
             this.ctrl.triggers = {
                 'close'     : {
                     'handler'   : $('<div/>',{'class':"close_trigger"}),
@@ -331,6 +330,9 @@
             return false
         },
 
+		/*
+		* Render content menu from molockup.blockpool 
+		*/
         _render_ctrl_content: function(){
             var self = this;
 
