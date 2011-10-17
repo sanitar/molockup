@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  layout 'workspace'
+  
   load_and_authorize_resource
   
   def index
@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.includes(:mockups).find(params[:id])
+    render 'show', :layout => 'workspace'
   end
 
   def new

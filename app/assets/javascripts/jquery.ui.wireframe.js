@@ -8,9 +8,8 @@
         },
 
         init_vars: function(){
-            this.next_id = 0;
             this.elements = {};
-            this.work_space = $('#work_space');
+            this.workspace = $('#work_space');
             this.elements_info = $('#elements_info');
             this.current_layer = {};
             this.layers_container = $('#layers');
@@ -58,7 +57,7 @@
 
             });
             
-            this.work_space.selectable({
+            this.workspace.selectable({
                 filter: '.element'
             });
             

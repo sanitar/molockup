@@ -180,12 +180,9 @@
          */
         _resizable_options: function(){
             var self = this;
-
-            var parent = 'parent';
-
-            var options = {
-
-                handles: 'n, e, s, w, se',
+			var parent = 'parent';
+			var options = {
+    			handles: 'n, e, s, w, se',
                 containment: parent,
                 grid: 5,
                 stop: function(event, ui){
@@ -345,6 +342,7 @@
 
                 molockup.content_menu.append(menu_item);
                 menu_item.wrap('<li/>');
+
                 var item = this;
                 menu_item.click(function(){
                     item.action(self.element.content);

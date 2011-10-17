@@ -29,31 +29,22 @@
                    </select>
                </li>
                <li>
-                   <a href="#" id="get_images_trigger">Get images</a>
-               </li>
-               <li>
-                   <a href="#" id="add_layer">+ new layer</a>
-               </li>
-               <li>
                		<a href="#" id="save_layout">save layout</a>
                </li>
 				<li>
                		<a href="#" id="load_layout">load layout</a>
                </li>
-               <li>
-               		<a href="#" id="debug_trigger">debug</a>
-               </li>
            </ul>
-           
+           <br/>
            <ul>
-           	<% @project.mockups.each do |mockup| 
-					mockup_id = "mockup_link_" + mockup.id.to_s
-			%>
-					
-					<li>
-						<%= link_to mockup.name, {:controller => 'projects', :action => 'show', :mockup_id => mockup.id}, :id => mockup_id, :class => 'show_mockup'%>
-					</li>
+			<li>Макеты проекта:</li>
+           	<% @project.mockups.each do |mockup| %> 
+				<% mockup_id = "mockup_link_" + mockup.id.to_s %>
+				<li>
+					<%= link_to mockup.name, {:controller => 'projects', :action => 'show', :mockup_id => mockup.id}, :id => mockup_id, :class => 'show_mockup'%>
+				</li>
 			<% end %>
+			<li><%= link_to '+ new mockup', new_project_mockup_path(@project), :id => 'add_new_mockup' %></li>
 			</ul>
 						
            <ul id="layers">
