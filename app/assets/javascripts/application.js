@@ -7,7 +7,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require blockpool
+//= require molockup
+//= require molockup.blockpool
 //= require json2
 //= require jquery.ui.mblock
 //= require jquery.ui.wireframe

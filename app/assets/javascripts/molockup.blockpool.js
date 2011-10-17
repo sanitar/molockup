@@ -1,7 +1,3 @@
-/* Init global molockup variable */
-var molockup = {};
-molockup.title = 'go!';
-
 /*
 * global molockup.blockpool contains block types
 *
