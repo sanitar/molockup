@@ -17,14 +17,23 @@
 
 <p>
   <b>Action:</b>
-  <%= @block.action %>
+	<%= @block.action %>
+	<a href="" id="action_handler">try!</a>
 </p>
-
+<div id="test">Yo!</div>
 <p>
   <b>Extra:</b>
   <%= @block.extra %>
 </p>
-
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#action_handler').click(function(){
+		var action = eval(<%=raw @block.action%>);
+		action($('#test'));
+		return false
+	})
+})
+</script>
 
 <%= link_to 'Edit', edit_block_path(@block) %> |
 <%= link_to 'Back', blocks_path %>

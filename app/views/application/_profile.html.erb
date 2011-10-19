@@ -3,6 +3,9 @@
 	<%= link_to 'logout', destroy_user_session_path, :method => :delete %>
 	<br/>
 	<%= link_to 'my projects', projects_path %>
+	<br/>
+	
+	<%= link_to 'custom blocks', blocks_path %>
 <% else %>
 	<%= link_to 'Register', new_user_registration_path %> or 
 	<%= link_to 'sign in.', new_user_session_path %>
