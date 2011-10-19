@@ -9,9 +9,17 @@
 * content - div inside block with all content, requires css class 'content', and can has other classes for custom styles
 *
 * */
+
 (function(molockup){
     molockup.blockpool = {
-        'reset' : {
+	
+	<% @pool.each do |block| %>
+		'<%=block.name%>':{
+			'title':'<%=block.title%>',
+			'action':<%=raw block.action%>
+		},
+	<% end %>
+		'reset' : {
             'title': 'Clear box (reset)',
             'action': function(content){
                 content.html('')
@@ -22,28 +30,8 @@
                              })
                         .attr('class', 'content');
             }
-        },
-
-        'string' : {
-            'title': 'One String',
-            'action': function(content){
-                content.html(molockup.title)
-            }
-        },
-        'background':{
-            'title': 'Black Back',
-            'action': function(content){
-                content.css({
-                    'background':'#000000'
-                }).removeClass().addClass('content');
-            }
-        },
-        'log': {
-            'title': 'Holy bible!',
-            'action':function(content){
-                console.log(molockup);
-            }
-
         }
     }
 })(molockup);
+
+console.log('Blockpool loaded!');

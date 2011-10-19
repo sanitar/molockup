@@ -1,5 +1,11 @@
 Molockup::Application.routes.draw do
 
+  resources :blocks do
+    collection do
+      get 'pool'
+    end
+  end
+
   resources :projects do
     resources :mockups do
       member do

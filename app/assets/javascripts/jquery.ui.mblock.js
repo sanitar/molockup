@@ -109,12 +109,15 @@
 
             /* Makes block resizable */
             this.element.resizable(this._resizable_options());
-
+			var self = this;
             // Changes block selection
             this.element.click(function(){
                 $('.ui-selected').removeClass('ui-selected');
                 $(this).addClass('ui-selected');
-                return false
+				
+				molockup.condition.block = this;
+				flash('update_info_panel');
+				return false
             });
 
 

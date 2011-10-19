@@ -14,6 +14,13 @@
             this.current_layer = {};
             this.layers_container = $('#layers');
             molockup.content_menu = $('<div/>', {'class':'content_menu'}).appendTo('body').hide();
+            molockup.current_block_info = $('<div/>', {'id':'current_block_info'}).css({
+					'position':'absolute',
+					'right':'20px',
+					'top':'20px',
+					'width':'300px',
+					'height':'30px'
+				}).appendTo('body');
         },
         
         _create: function(){
@@ -23,7 +30,7 @@
             * molockup - service object
             *
             * */
-
+			this._load_blockpool();
             molockup.block_id = 0;
             molockup.blocks = {};
 
@@ -123,6 +130,15 @@
                 })
             }
         },
+		_load_blockpool: function(){
+			$.ajax({
+                type: 'GET',
+                url: '/blocks/pool',
+                success: function(msg){
+					// pool.js file in msg var
+                }
+            });
+		},
         _callback: function(fn){
             if ($.isFunction(fn)) {
                 fn.call(this);
