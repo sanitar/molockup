@@ -1,9 +1,10 @@
 /**
- * Created by .
+ * Created by Panasenkov Aleksandr.
  * User: pan
  * Date: 21.06.11
  * Time: 22:40
  */
+
 (function($){
 
     $.widget('ui.mblock', {
