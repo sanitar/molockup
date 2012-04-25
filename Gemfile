@@ -1,42 +1,54 @@
 source 'http://rubygems.org'
 
-gem 'rack', '1.3.3'
-gem 'rails', '3.1.0'
-gem 'devise'
-gem 'cancan'
-gem 'json'
-gem 'nifty-generators'
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+gem 'rails', '3.2.2'
 
-gem 'sqlite3'
-
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
-end
-
+# Main gems
+gem 'devise', '1.5.3'
+gem 'cancan', '1.6.7'
+gem 'will_paginate', '3.0.2'
+gem 'paperclip', '2.5.0'
+gem 'nokogiri', '1.5.0'
 gem 'jquery-rails'
 
-group :production do
-  gem 'therubyracer-heroku', '0.8.1.pre3' # you will need this too
-  gem 'pg'
+# search gems
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'resque', :require => "resque/server"
+gem 'god'
+
+# databases
+gem 'mysql2', '>=0.3'
+gem 'sqlite3'
+gem 'redis'
+
+# misc
+gem 'rubyzip'
+gem 'russian', '~> 0.6.0'
+gem 'execjs'
+gem 'therubyracer'
+gem 'progress_bar'
+
+gem 'haml'
+gem 'haml-rails', :group => :development
+
+#assets
+group :assets do
+  gem 'sass-rails', "  ~> 3.2.4"
+  gem 'coffee-rails', "~> 3.2.2"
+  gem 'uglifier', '>= 1.2.3'
 end
-# Use unicorn as the web server
-# gem 'unicorn'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+#host and deploy
+gem 'unicorn'
+gem 'capistrano', '2.9.0'
 
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+  gem "annotate", "~> 2.4.1.beta1"
+end
 
 group :test do
   # Pretty printed test output
-  gem 'turn', :require => false
+  gem 'turn', '0.8.2', :require => false
 end
-gem "mocha", :group => :test

@@ -19,16 +19,16 @@ ActiveRecord::Schema.define(:version => 20111019183152) do
     t.string   "title"
     t.text     "action"
     t.text     "extra"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "mockups", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.text     "content"
   end
 
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20111019183152) do
     t.text     "description"
     t.integer  "owner_id"
     t.string   "owner_type",  :default => "user"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(:version => 20111019183152) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -2,7 +2,6 @@
 
 <div id="navigation">
 
-				
            <h1><%= link_to @project.name, @project %></h1>
            
            <h3><%= link_to current_user.email %> (<%= @project.owner_id %>) <%= link_to '(edit)', edit_project_path(@project) %></h3>
